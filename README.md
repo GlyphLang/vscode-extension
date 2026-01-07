@@ -1,5 +1,7 @@
 # GlyphLang Support for VS Code
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/GlyphLang.GlyphLang)](https://marketplace.visualstudio.com/items?itemName=GlyphLang.GlyphLang)
+
 This extension provides comprehensive language support for GlyphLang - a domain-specific language for building type-safe REST APIs with bytecode compilation and JIT optimization.
 
 ## Features
@@ -117,9 +119,9 @@ To enable LSP logging for debugging:
 
 ## Release Notes
 
-### 1.0.0
+### 0.2.3
 
-Production-ready release with comprehensive language support:
+Initial release with comprehensive language support:
 
 **Language Features:**
 - Full syntax highlighting for .glyph and .glybc files
@@ -145,8 +147,8 @@ Production-ready release with comprehensive language support:
 
 ## Contributing
 
-Contributions are welcome! Please visit https://github.com/GlyphLang/GlyphLang
+Contributions are welcome! Please visit https://github.com/GlyphLang/vscode-extension
 
 ## License
 
-Apache License 2.0 - see [LICENSE](https://github.com/GlyphLang/GlyphLang/blob/main/LICENSE) for details.
+Apache License 2.0 - see [LICENSE](https://github.com/GlyphLang/vscode-extension/blob/main/LICENSE) for details.
