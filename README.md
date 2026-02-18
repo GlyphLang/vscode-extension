@@ -2,7 +2,7 @@
 
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/GlyphLang.GlyphLang)](https://marketplace.visualstudio.com/items?itemName=GlyphLang.GlyphLang)
 
-This extension provides comprehensive language support for GlyphLang - a domain-specific language for building type-safe REST APIs with bytecode compilation and JIT optimization.
+This extension provides comprehensive language support for GlyphLang - a domain-specific language for building type-safe REST APIs with polyglot code generation (Python/FastAPI, TypeScript/Express).
 
 ## Features
 
@@ -14,6 +14,13 @@ This extension provides comprehensive language support for GlyphLang - a domain-
 - **Find References**: Find all references to symbols across your code
 - **Document Symbols**: Outline view showing types, routes, and functions
 - **Diagnostics**: Real-time error checking and validation
+
+### Code Generation
+- **Generate Server Code**: Generate complete server applications from `.glyph` files in Python/FastAPI or TypeScript/Express
+- **Preview Generated Code**: Side-by-side preview panel showing generated Python and TypeScript output with tab switching
+- **Context Menu Integration**: Right-click any `.glyph` file in the editor or explorer to generate code
+- **Auto-Refresh Preview**: Preview panel updates automatically when the source `.glyph` file changes
+- **Save to File**: Export generated code directly from the preview panel
 
 ### Optimizer Integration
 - **Optimization Hints**: Real-time suggestions for code optimizations
@@ -57,11 +64,29 @@ This extension contributes the following settings:
 ### Diagnostics
 * `glyph.diagnostics.showOptimizerHints`: Show optimization hints in the editor (default: `true`)
 
+### Code Generation
+* `glyph.codegen.defaultLanguage`: Default target language for code generation (default: `python`). Options: `python`, `typescript`
+
 ## Usage
 
 1. Open any `.glyph` or `.glybc` file
 2. The extension will automatically start the GlyphLang Language Server
 3. You'll get syntax highlighting, completions, diagnostics, and optimizer hints
+
+### Generate Server Code
+
+1. Open a `.glyph` file or right-click one in the explorer
+2. Run **Glyph: Generate Server Code** from the command palette (`Ctrl+Shift+P`)
+3. Select the target language (Python or TypeScript)
+4. Generated code is written to a `generated/<language>/` directory next to the source file
+
+### Preview Generated Code
+
+1. Open a `.glyph` file in the editor
+2. Run **Glyph: Preview Generated Code** from the command palette (`Ctrl+Shift+P`)
+3. A side panel opens showing the generated Python and TypeScript code
+4. Use the tab bar to switch between languages
+5. Click **Save to File** to export the generated code
 
 ### Keyboard Shortcuts
 
@@ -118,6 +143,15 @@ To enable LSP logging for debugging:
 ```
 
 ## Release Notes
+
+### 0.3.0
+
+**Code Generation Integration:**
+- Generate Server Code command with Python/FastAPI and TypeScript/Express targets
+- Preview Generated Code command with side-by-side webview panel
+- Context menu integration for .glyph files (editor and explorer)
+- Auto-refresh preview on source file changes
+- Configurable default target language setting
 
 ### 0.2.3
 
