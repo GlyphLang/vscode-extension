@@ -1,8 +1,8 @@
 {
   "name": "GlyphLang",
   "displayName": "GlyphLang Language Support",
-  "description": "Language support for GlyphLang - a domain-specific language for building type-safe REST APIs with bytecode compilation and JIT optimization",
-  "version": "0.2.3",
+  "description": "Language support for GlyphLang - a domain-specific language for building type-safe REST APIs with polyglot code generation (Python/FastAPI, TypeScript/Express)",
+  "version": "0.3.0",
   "publisher": "GlyphLang",
   "license": "Apache-2.0",
   "icon": "icon.png",
@@ -21,7 +21,13 @@
     "rest",
     "bytecode",
     "compiler",
-    "language"
+    "language",
+    "codegen",
+    "polyglot",
+    "python",
+    "fastapi",
+    "typescript",
+    "express"
   ],
   "engines": {
     "vscode": "^1.75.0"
@@ -55,6 +61,34 @@
         "path": "./syntaxes/glyph.tmLanguage.json"
       }
     ],
+    "commands": [
+      {
+        "command": "glyph.codegen",
+        "title": "Generate Server Code",
+        "category": "Glyph"
+      },
+      {
+        "command": "glyph.codegenPreview",
+        "title": "Preview Generated Code",
+        "category": "Glyph"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "glyph.codegen",
+          "when": "resourceExtname == .glyph",
+          "group": "glyph"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "glyph.codegen",
+          "when": "resourceExtname == .glyph",
+          "group": "glyph"
+        }
+      ]
+    },
     "configuration": {
       "type": "object",
       "title": "Glyph",
@@ -90,6 +124,15 @@
           "type": "boolean",
           "default": true,
           "description": "Show optimizer hints in diagnostics"
+        },
+        "glyph.codegen.defaultLanguage": {
+          "type": "string",
+          "enum": [
+            "python",
+            "typescript"
+          ],
+          "default": "python",
+          "description": "Default target language for code generation"
         }
       }
     }
